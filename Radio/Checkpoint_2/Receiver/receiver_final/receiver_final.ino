@@ -9,7 +9,8 @@ byte randomSequence[50];
 int sequenceLength = 0;
 int sequencePosition = 0;
 //byte code = 0;
-float code;
+float floatCode;
+int code = 0;
 
 void flashRed();
 void flashGreen();
@@ -41,9 +42,15 @@ void loop() {
     }
   }
 
-  else if(receiving(code) && sequencePosition < sequenceLength)
+  else if(receiving(floatCode) && sequencePosition < sequenceLength)
   {
     //code = Serial.read();
+    if(floatCode == -13107)
+      code = 2;
+    else if(floatCode == 13107)
+      code = 3;
+    else if(floatCode == -26124)
+      code = 1;
     delay(100);
     if(code == randomSequence[sequencePosition])
     {

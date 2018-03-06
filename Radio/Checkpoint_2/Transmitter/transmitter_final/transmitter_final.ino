@@ -7,7 +7,6 @@
 int buttonStateA = 0;
 int buttonStateB = 0;
 int buttonStateC = 0;
-
 void setup() {
   Serial.begin(9600);
   transmitter_setup();
@@ -19,7 +18,7 @@ void setup() {
 void loop() {
   if (buttonStateA == LOW && digitalRead(switchA) == HIGH) //if previously off, communicate it is on when on
   {
-    sending(1);
+    sending(1.2);
     //Serial.write(1);
     delay(100);
     buttonStateA = HIGH;
@@ -29,7 +28,7 @@ void loop() {
  
   if (buttonStateB == LOW && digitalRead(switchB) == HIGH)
   {
-    sending(2);
+    sending(2.2);
     //Serial.write(2);
     delay(100);
     buttonStateB = HIGH;
@@ -39,7 +38,7 @@ void loop() {
   
   if (buttonStateC == LOW && digitalRead(switchC) == HIGH)
   {
-    sending(3);
+    sending(9.2);
     //Serial.write(3);
     delay(100);
     buttonStateC = HIGH;
